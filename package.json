@@ -1,0 +1,26 @@
+{
+  "name": "react_practice",
+  "version": "1.0.0",
+  "description": "swiggy demo",
+  "homepage": "https://github.com/kenshelby/react_practice#readme",
+  "bugs": {
+    "url": "https://github.com/kenshelby/react_practice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenshelby/react_practice.git"
+  },
+  "license": "ISC",
+  "author": "Vishwa Prakash",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  }
+}
