@@ -1,0 +1,19 @@
+/*
+        appLayout
+            Header
+                logo
+                navitems
+            end    
+            Body
+                SearchBar
+                RestaurantContainer
+                    RestaurantCard
+                        img
+                        res-details
+                    end
+                end     
+            end            
+            Footer
+            end
+        end    
+ */
