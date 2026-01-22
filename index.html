@@ -5,7 +5,7 @@
     <body>
         <div id = "root">
         </div>
-        <script>
+        <script> //before src u need type = "module" so that when u remove cdn link u can run the react
             const heading = document.createElement("h1");
             heading.innerHTML = "This is Javascript";
             const root = document.getElementById("root"); //document.getElementById("root").appendChild(heading);
@@ -19,9 +19,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>This is react tutorial</title>
+        <link rel="stylesheet" href="./index.css">
+        <link rel="icon" href="./favicon.ico">
     </head>
-    <body>
+    <body style="background-color: beige;">
         <div id = "root">THIS WILL NOT SHOW ONCE REACT TAKES OVER</div>        
-        <script type = "module" src = "./app.js"></script>//before src u need type = "module" so that when u remove cdn link u can run the react
+        <script type = "module" src = "./app.js"></script>
     </body>
 </html>
