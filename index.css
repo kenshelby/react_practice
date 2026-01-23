@@ -50,14 +50,31 @@
     box-shadow: 2px 1px 1px gray;
 }
 .res-container{
-    display: flex;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .res-card{
     box-shadow: 5px 2px rgb(219, 237, 237);
     background-color:white;
+    width: 280px;
+    height: 420px;
     margin: 5px;
+    padding: 5px;
+}
+
+.res-card:hover{
+    border: 1px solid rgb(90, 83, 83);
+    cursor: pointer;
 }
 
 .res-img{
-    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    width: 90%;
+}
+
+.res-rating{
+    align-items: center;
 }
