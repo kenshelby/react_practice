@@ -44,6 +44,6 @@ const HeadingComponent = () => {
             <h2>this is inside func component</h2>
         </div>
     )
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<HeadingComponent></HeadingComponent>)
+    // const root = ReactDOM.createRoot(document.getElementById('root'));
+    // root.render(<HeadingComponent></HeadingComponent>)
 };
