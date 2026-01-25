@@ -35,4 +35,10 @@
  write a method handleChange and use it.
 
 
-//
+// added functionality to searchbox
+
+onChange={handleChange} and onChange={(e) => handleChange(e)}
+in the first case the evnt is passed automatically
+in the latter the event has to be passed explicitly
+{handleChange} here we are passing the reference and it is called only upon the event firing
+handleChange(e) >> this is an immideate call. causes unnecessary bugs

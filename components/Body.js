@@ -6,8 +6,17 @@ import SliderFilter from "./SliderFilter"
 const Body = () =>{
     const [restaurant, setRestaurant] = useState(resList);
     let filteredList =[];
+
+    const handleChange = (e) =>{
+        console.log(e.target.value);
+        const value = e.target.value.toLowerCase();
+        filteredList = resList.filter( 
+            res => 
+                res.info.name.toLowerCase().includes(value) || res.info.cuisines.some( cuisine => cuisine.toLowerCase().includes(value))
+        );
+        setRestaurant(filteredList);
+    }
     const handleRatingChange = (rating) => {
-        console.log(rating);
         filteredList = resList.filter(
             (res) => res.info.avgRating >= rating
         );
@@ -18,7 +27,7 @@ const Body = () =>{
             <div className="top-container">
                 <div className="empty-element"></div>
                 <div className="search">
-                    <input className="input-box"/>
+                    <input className="input-box" onChange={handleChange}/>
                     <button className="search-button">search</button>
                 </div>
                 <div className="filter">
