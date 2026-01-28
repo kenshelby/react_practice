@@ -1,11 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
 import { resList } from "../utils/config";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SliderFilter from "./SliderFilter"
 
 const Body = () =>{
     const [restaurant, setRestaurant] = useState(resList);
     let filteredList =[];
+
+    useEffect(); //add fetching using api
 
     const handleChange = (e) =>{
         console.log(e.target.value);
