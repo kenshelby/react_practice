@@ -4,6 +4,8 @@ export const cartLogo = "https://cdn-icons-png.flaticon.com/512/6000/6000305.png
 
 export const swiggyLogo = "https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo-500x281.png";
 
+export const swiggyUrl = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9367143&lng=77.6237713&collection=80463&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+
 export const resList = [
     {
         "info": {
