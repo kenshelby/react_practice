@@ -1,13 +1,26 @@
 import RestaurantCard from "./RestaurantCard";
-import { resList } from "../utils/config";
+import { resList, swiggyUrl } from "../utils/config";
 import { useEffect, useState } from "react";
 import SliderFilter from "./SliderFilter"
+import Shimmer from "./Shimmer";
 
 const Body = () =>{
-    const [restaurant, setRestaurant] = useState(resList);
+    const [restaurant, setRestaurant] = useState([]);
     let filteredList =[];
 
-    useEffect(); //add fetching using api
+    useEffect(() => {
+
+        const fetchData = async () => {
+            const data = await fetch(swiggyUrl);
+            const result = await data.json();
+            console.log(result.data.cards.slice(2));
+            setRestaurant(result.data.cards.slice(2));
+        }
+
+        fetchData();
+    }, []); //add fetching using api
+
+    
 
     const handleChange = (e) =>{
         console.log(e.target.value);
@@ -41,10 +54,17 @@ const Body = () =>{
                 </div>
             </div>
             <div className="res-container">
-                {restaurant.map(
-                    (res) => 
-                    (<RestaurantCard key={res.info.id} resData={res}/>)
-                )}
+                {
+                    restaurant.length === 0 ? 
+                    ( <Shimmer />) :
+
+                    (
+                        restaurant.map(
+                            (res) => 
+                            (<RestaurantCard key={res.card.card.info.id} resData={res}/>)
+                        )
+                    )
+                }
             </div>
         </div>
     )
