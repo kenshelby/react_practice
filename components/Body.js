@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { resList, swiggyUrl } from "../utils/config";
 import { useEffect, useState } from "react";
 import SliderFilter from "./SliderFilter"
+import Shimmer from "./Shimmer";
 
 const Body = () =>{
     const [restaurant, setRestaurant] = useState([]);
@@ -53,10 +54,17 @@ const Body = () =>{
                 </div>
             </div>
             <div className="res-container">
-                {restaurant.map(
-                    (res) => 
-                    (<RestaurantCard key={res.card.card.info.id} resData={res}/>)
-                )}
+                {
+                    restaurant.length === 0 ? 
+                    ( <Shimmer />) :
+
+                    (
+                        restaurant.map(
+                            (res) => 
+                            (<RestaurantCard key={res.card.card.info.id} resData={res}/>)
+                        )
+                    )
+                }
             </div>
         </div>
     )
