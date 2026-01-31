@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () =>{
     const [restaurant, setRestaurant] = useState([]);
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     let filteredList =[];
 
     useEffect(() => {
@@ -15,6 +16,7 @@ const Body = () =>{
             const result = await data.json();
             console.log(result.data.cards.slice(2));
             setRestaurant(result.data.cards.slice(2));
+            setFilteredRestaurant(result.data.cards.slice(2));
         }
 
         fetchData();
@@ -25,17 +27,17 @@ const Body = () =>{
     const handleChange = (e) =>{
         console.log(e.target.value);
         const value = e.target.value.toLowerCase();
-        filteredList = resList.filter( 
+        filteredList = restaurant.filter( 
             res => 
-                res.info.name.toLowerCase().includes(value) || res.info.cuisines.some( cuisine => cuisine.toLowerCase().includes(value))
+                res.card.card.info.name.toLowerCase().includes(value) || res.card.card.info.cuisines.some( cuisine => cuisine.toLowerCase().includes(value))
         );
-        setRestaurant(filteredList);
+        setFilteredRestaurant(filteredList);
     }
     const handleRatingChange = (rating) => {
-        filteredList = resList.filter(
-            (res) => res.info.avgRating >= rating
+        filteredList = restaurant.filter(
+            (res) => res.card.card.info.avgRating >= rating
         );
-        setRestaurant(filteredList);
+        setFilteredRestaurant(filteredList);
     }
     return(
         <div className="body">
@@ -59,7 +61,7 @@ const Body = () =>{
                     ( <Shimmer />) :
 
                     (
-                        restaurant.map(
+                        filteredRestaurant.map(
                             (res) => 
                             (<RestaurantCard key={res.card.card.info.id} resData={res}/>)
                         )
