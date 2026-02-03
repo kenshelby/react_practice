@@ -45,6 +45,20 @@
     border-bottom-left-radius: 8px;
     box-shadow: 2px 1px 1px gray;
 }
+
+.location-input{
+    width: 380px;
+    height: 45px;
+    border: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 2px 1px 1px gray;
+    padding: 0 12px;        /* horizontal padding */
+    line-height: 45px;     /* match height */
+    box-sizing: border-box;
+}
 .search-button{
     height: 47px;
     border: none;
