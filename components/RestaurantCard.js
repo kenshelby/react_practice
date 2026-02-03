@@ -2,7 +2,7 @@ import RatingIcon from "./RatingIcon";
 import { resImg } from "../utils/config";
 
 const RestaurantCard = (props) => {
-    console.log(props.resData.card.card.info)
+
     const { id, name, cloudinaryImageId, costForTwo, cuisines, avgRating } = props.resData.card.card.info;
     return(
         <div className="res-card">

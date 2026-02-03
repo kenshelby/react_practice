@@ -3,6 +3,7 @@ import { resList, swiggyUrl } from "../utils/config";
 import { useEffect, useState } from "react";
 import SliderFilter from "./SliderFilter"
 import Shimmer from "./Shimmer";
+import Location from "./Location";
 
 const Body = () =>{
     const [restaurant, setRestaurant] = useState([]);
@@ -14,14 +15,12 @@ const Body = () =>{
         const fetchData = async () => {
             const data = await fetch(swiggyUrl);
             const result = await data.json();
-            console.log(result.data.cards.slice(2));
             setRestaurant(result.data.cards.slice(2));
             setFilteredRestaurant(result.data.cards.slice(2));
         }
 
         fetchData();
-    }, []); //add fetching using api
-
+    }, []);
     
 
     const handleChange = (e) =>{
@@ -42,7 +41,7 @@ const Body = () =>{
     return(
         <div className="body">
             <div className="top-container">
-                <div className="empty-element"></div>
+                <Location/>
                 <div className="search">
                     <input className="input-box" onChange={handleChange}/>
                     <button className="search-button">search</button>
