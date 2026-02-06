@@ -3,8 +3,9 @@ import React from 'react'
 import { mapUrl } from "../utils/config";
 import AddressCard from "./AddressCard";
 
-const Location = () => {
+const Location = (props) => {
 
+  const {updatedCoordinates} = props;
   const [query, setQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [suggestion, setSuggestion] = useState([]);
@@ -20,13 +21,14 @@ const Location = () => {
         const res = await fetch(mapUrl(query));
         const data = await res.json();
         setSuggestion(data.features);
-    }, 2000);
+    }, 1200);
 
     return () => { clearTimeout(timer) }
 
   }, [query]);
 
   const handleLocationSelect = (loc) => {
+    updatedCoordinates(loc.properties.coordinates);
     setSelectedLocation(loc);
     setQuery(loc.properties.name);
     setSuggestion([]);
