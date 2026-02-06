@@ -6,10 +6,11 @@ import AddressCard from "./AddressCard";
 const Location = () => {
 
   const [query, setQuery] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState(null);
   const [suggestion, setSuggestion] = useState([]);
 
   useEffect(() => {
-
+    if (selectedLocation) return;
     if (query.length < 3) {
         setSuggestion([]);
         return;
@@ -25,16 +26,32 @@ const Location = () => {
 
   }, [query]);
 
+  const handleLocationSelect = (loc) => {
+    setSelectedLocation(loc);
+    setQuery(loc.properties.name);
+    setSuggestion([]);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <div className="location-container">
-        <form>
+        <form onSubmit={handleSubmit}>
             <input 
-               className="location-input" placeholder="Enter Your City" onChange={(e) => {setQuery(e.target.value)}}>
+               className="location-input" 
+               placeholder="Enter Your City" 
+               value={query} 
+               onChange={(e) => {
+                setSelectedLocation(null);
+                setQuery(e.target.value);
+                }}>
             </input>
         </form>
         <ul>
             {suggestion.map(loc => (
-                <AddressCard key={loc.id} loc={loc}/> 
+                <AddressCard key={loc.id} loc={loc} onClick={() => handleLocationSelect(loc)} />
             ))}
         </ul>
     </div>
