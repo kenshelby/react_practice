@@ -149,7 +149,8 @@
     display: block;
     margin: 0 auto;
     padding: 5px;
-    width: 90%;
+    width: 95%;
+    height: 250px;
 }
 
 .res-rating{
