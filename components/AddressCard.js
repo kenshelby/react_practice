@@ -1,8 +1,8 @@
 
 
-const AddressCard = ({loc}) => {
+const AddressCard = ({ loc, onClick }) => {
     return(
-        <li key={loc.id}>
+        <li onClick= {onClick}>
             <strong>{loc.properties.name}</strong>
             <div>{loc.properties.place_formatted}</div>
         </li> 
