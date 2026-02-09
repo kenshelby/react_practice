@@ -1,5 +1,6 @@
 import { cartLogo, swiggyLogo } from "../utils/config";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () =>{
 
@@ -11,8 +12,8 @@ const Header = () =>{
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>Contact</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                     <li className="login-button" style={{cursor: "pointer"}} onClick={() => {
                         isLogin === "Login" ? setIsLogin("Logout") : setIsLogin("Login");
                     }}>{isLogin}</li>
