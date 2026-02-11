@@ -6,6 +6,8 @@ export const swiggyLogo = "https://1000logos.net/wp-content/uploads/2021/05/Swig
 
 export const swiggyUrl = (latitude, longitude) => `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&collection=80463&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null`
 
+export const menuUrl = (lat, lng, resId) => `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
+
 export const mapUrl = (address) =>`https://api.mapbox.com/search/geocode/v6/forward?q=${address}&country=IN&limit=3&access_token=pk.eyJ1Ijoia2Vuc2hlbGJ5IiwiYSI6ImNtbDZvcHo4ZTAydmMzZXNjZ3gza3l5MXcifQ.sYY5yiO38e3an0_Roe0gCw`
 
 export const resList = [
