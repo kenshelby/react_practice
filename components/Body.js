@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import SliderFilter from "./SliderFilter"
 import Shimmer from "./Shimmer";
 import Location from "./Location";
+import { Link } from "react-router-dom";
 
 const Body = () =>{
     const [restaurant, setRestaurant] = useState([]);
@@ -66,7 +67,14 @@ const Body = () =>{
                     (
                         filteredRestaurant.map(
                             (res) => 
-                            (<RestaurantCard key={res.card.card.info.id} resData={res}/>)
+                            (
+                                <Link
+                                    to={"/restaurant/" + res.card.card.info.id}
+                                    state={{lat: coords.latitude, lng: coords.longitude}}
+                                    key={res.card.card.info.id}>
+                                        <RestaurantCard resData={res}/>
+                                </Link>
+                            )
                         )
                     )
                 }
