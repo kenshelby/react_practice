@@ -69,7 +69,7 @@ const Body = () =>{
                             (res) => 
                             (
                                 <Link
-                                    to={"/restaurant/" + res.card.card.info.id}
+                                    to={"/restaurant/" + res.card.card.info.id + "/" + res.card.card.info.name.split(" ").join("-")}
                                     state={{lat: coords.latitude, lng: coords.longitude}}
                                     key={res.card.card.info.id}>
                                         <RestaurantCard resData={res}/>

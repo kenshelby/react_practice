@@ -7,14 +7,14 @@ const RestaurantCard = (props) => {
     return(
         <div className="res-card">
             <img className="res-img" src={resImg + cloudinaryImageId}></img>
-            <h4 className="res-name">{name}</h4>
-            <span>{locality}</span>
+            <h4 className="res-name">{name}</h4>            
             <div className="res-rating">
                 <RatingIcon size={14} />
                 <span className="rating-value" style={{padding: "4px"}}>{avgRating}</span>
                 <span className="cost" style={{padding: "20px"}}>{costForTwo}</span>
             </div>
             <div className="cuisine">{cuisines.join(", ")}</div>
+            <div className="location">{locality}</div>
         </div>
     )
 }
