@@ -24,7 +24,7 @@ root.render(
                     <Route path="/" element={<AppLayout/>}>
                         <Route index element={<Body/>}></Route>
                         <Route path="/contact" element={<Contact/>}></Route>
-                        <Route path="/restaurant/:resId" element={<Menu/>}></Route>
+                        <Route path="/restaurant/:resId/:resName" element={<Menu/>}></Route>
                     </Route>
                 </Routes>
             </Router>
