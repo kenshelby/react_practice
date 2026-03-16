@@ -1,7 +1,19 @@
 import RatingIcon from "./RatingIcon";
 import { resImg } from "../utils/config";
+import { useDispatch } from "react-redux";
+import { addItem, removeItem } from "../utils/catSlice";
 
 const AccordianBody = ({data}) => {
+
+    const dispatch = useDispatch();
+
+    const handleAdd = (itemInfo) => {
+        dispatch(addItem(itemInfo));
+    }
+    const handleRemove = (e) => {
+        e.stopPropagation();
+        dispatch(removeItem());
+    }
     return(
         <div>
             <div className="menu-parent">
@@ -13,7 +25,11 @@ const AccordianBody = ({data}) => {
                 </div>
                 <div className="menu-img">
                     <img src={resImg+data.card.info.imageId}></img>
-                    <button className="add-button"> ADD </button>
+                    <button className="add-button" onClick={() => handleAdd(data.card.info)}>
+                        <span className="remove-item" onClick={(e) => handleRemove(e)}> - </span>
+                         ADD 
+                        <span className="increase-item"> + </span>
+                    </button>
                 </div>
             </div>
             <div className="horizontal-line"></div>            
